@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 
+import Dashboard from './components/dashboard';
 import Login from './components/login';
 
 import './style.css';
@@ -61,10 +62,10 @@ export default function App() {
       <div className={classes.root}>
         <AppBar position="static">{lnk}</AppBar>
         <Switch>
-          <Route exact path="/login">
-            <Login setUsername={setUsername} />
-          </Route>
           <Route exact path="/">
+            <Dashboard />
+          </Route>
+          <Route exact path="/login">
             <Login setUsername={setUsername} />
           </Route>
         </Switch>
