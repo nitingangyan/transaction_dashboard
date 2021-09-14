@@ -6,6 +6,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 
 import Dashboard from './components/dashboard';
+import Details from './components/details';
 import Login from './components/login';
 
 import './style.css';
@@ -64,6 +65,9 @@ export default function App() {
         <Switch>
           <Route exact path="/">
             <Dashboard />
+          </Route>
+          <Route exact path="/details">
+            <Details />
           </Route>
           <Route exact path="/login">
             <Login setUsername={setUsername} />
