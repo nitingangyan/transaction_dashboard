@@ -64,6 +64,9 @@ export default function App() {
           <Route exact path="/login">
             <Login setUsername={setUsername} />
           </Route>
+          <Route exact path="/">
+            <Login setUsername={setUsername} />
+          </Route>
         </Switch>
       </div>
     </Router>

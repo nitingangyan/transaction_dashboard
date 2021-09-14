@@ -1,12 +1,23 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import IconButton from '@material-ui/core/IconButton';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import Input from '@material-ui/core/Input';
+import FilledInput from '@material-ui/core/FilledInput';
+import OutlinedInput from '@material-ui/core/OutlinedInput';
+import InputLabel from '@material-ui/core/InputLabel';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import FormHelperText from '@material-ui/core/FormHelperText';
+import FormControl from '@material-ui/core/FormControl';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -58,19 +69,22 @@ const Login = props => {
           </Typography>
           <Typography className={classes.pos} color="textSecondary" />
 
-          <Typography variant="body2" component="p">
-            <form className={classes.root} noValidate autoComplete="off">
-              <div>
-                <TextField
-                  id="standard-error-helper-text"
-                  label="Username"
-                  defaultValue=""
-                  onBlur={handleBlur}
-                  {...errorMsg}
-                />
-              </div>
-            </form>
-          </Typography>
+          <FormControl className={clsx(classes.margin, classes.textField)}>
+            <InputLabel htmlFor="standard-adornment-password">
+              Password
+            </InputLabel>
+            <Input
+              id="standard-adornment-password"
+              type="text"
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton aria-label="toggle password visibility">
+                    {errorMsg.showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+          </FormControl>
         </CardContent>
         <CardActions>
           <Button variant="contained" color="primary" onClick={onSubmit}>
